@@ -1,0 +1,83 @@
+// Form 1
+namespace SignUp_Login
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            new Form2().Show();
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        {
+            if (txtBUser.Text == "jeysi" && txtBPass.Text == "pass")
+            {
+                MessageBox.Show("Login Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Wrong Username or Password");
+                txtBUser.Text = "";
+                txtBPass.Text = "";
+            }
+        }
+    }
+}
+//Form 2
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SignUp_Login
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtBUser.Text == "" || txtBLast.Text == "" || txtBUserIdw.Text == "")
+            {
+                MessageBox.Show("Incomplete Sign Up");
+            }
+            else if (txtBPass.Text == txtBConfirmPass.Text)
+            {
+                MessageBox.Show("Welcome " + txtBUserIdw.Text);
+                this.Hide();
+                //new Form3().Show();
+            }
+            else if (txtBPass.Text != txtBConfirmPass.Text)
+            {
+                MessageBox.Show("Password do not match");
+                txtBPass.Text = "";
+                txtBConfirmPass.Text = "";
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            new Form1().Show();
+        }
+    }
+}
